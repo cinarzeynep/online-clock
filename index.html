@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <header class="header">
+        <div class="logo_area">
+           <h1 class="logo"><span>O</span>nline <span>C</span>lock</h1>
+           <p class="sentence">manage the time</p>
+        </div>
+
+        <nav class="navbar">
+            <div class="icon-and-nvbr-item">
+               <a id="clock" class="active" href="#">Clock</a>
+               <img class="menu-img" src="img/clock.png" alt="">
+            </div>
+            <div class="icon-and-nvbr-item">
+               <a id="stopwatch" href="#">Stopwatch</a>
+               <img class="menu-img" src="img/stopwatch.png" alt="">
+            </div>
+            <div class="icon-and-nvbr-item">
+               <a id="timer" href="#">Timer</a>
+               <img class="menu-img" src="img/timer.png" alt="">
+            </div>
+            <div class="icon-and-nvbr-item">
+               <a id="styles" href="#">Styles</a>
+               <img class="menu-img" src="img/styles.png" alt="">
+            </div>
+        </nav>
+    </header>
+    <div class="res-menu-con">
+        <img id="menu-btn" src="img/menu.png" alt="">
+        <div class="hided-menu">
+            <div id="clck" class="res-icon-and-menu-item active">
+                <a id="res-clock" href="#">Clock</a>
+                <img class="res-menu-img" src="img/clock.png" alt="">
+             </div>
+             <div id="stpwtch" class="res-icon-and-menu-item">
+                <a id="res-stopwatch" href="#">Stopwatch</a>
+                <img class="res-menu-img" src="img/stopwatch.png" alt="">
+             </div>
+             <div id="tmr" class="res-icon-and-menu-item">
+                <a id="res-timer" href="#">Timer</a>
+                <img class="res-menu-img" src="img/timer.png" alt="">
+             </div>
+             <div id="styls" class="res-icon-and-menu-item">
+                <a id="res-styles" href="#">Styles</a>
+                <img class="res-menu-img" src="img/styles.png" alt="">
+             </div>
+        </div>
+    </div>
+
+
+    <div class="outer-wrapper">
+
+        <!-- Clock -->
+        <div class="main">
+    
+            <div class="items">
+                <div class="clock-and-ampm">
+                    <div class="clock-container">
+                        <div class="hour">
+                            <div class="clock-item" id="hour"></div> 
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="min">
+                            <div class="clock-item" id="minute"></div>
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="sec">
+                            <div class="clock-item" id="second"></div>
+                        </div>
+                    </div>
+                    <div class="am-pm">
+                        <div id="ampm">AM</div>
+                        <p class="other-ampm">PM</p>
+                    </div>
+                </div>
+                
+                
+    
+                <div>
+                    <p id="date"></p>
+                </div>
+            </div>
+    
+    
+            <div class="show-hide-date">
+                <img onclick="showOrHide()" id="show-symbol" class="" src="img/hided-select-bar.png" alt="">
+    
+    
+                <div class="date-container">
+                    <img onclick="writeDelDate" id="hide-date" class="date-icon" src="img/hide-date.png" alt="hide date">
+                    <img onclick="writeDelDate" id="show-date" class="date-icon" src="img/show-date.png" alt="show date">
+                </div>
+    
+            </div>
+        </div>
+    
+        
+        <!-- Stopwatch -->
+        <div class="stopwatch hidden">
+            <div class="wrapper">
+                <div class="time-container">
+                    <div class="hour">
+                        <p class="number" id="stopwatch-hour">00</p>
+                        <p class="time-word">hours</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="min">
+                        <p class="number" id="stopwatch-min">00</p>
+                        <p class="time-word">minutes</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="sec">
+                        <p class="number" id="stopwatch-sec">00</p>
+                        <p class="time-word">seconds</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="milisecond">
+                        <p class="number" id="stopwatch-ms">00</p>
+                        <p class="time-word">miliseconds</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="laps">
+            <!--<div class="lap active">
+                <p>lap 2</p>
+                    <p>00:00</p>
+                </div>
+                <div class="lap">
+                    <p>lap 1</p>
+                    <p>00:00</p>
+                </div>
+            -->
+            </div>
+    
+            <div class="btns">
+                <img class="btn start-stopwatch" src="img/start-stopwatch.png" alt="Start Stopwatch" title="Start Stopwatch">
+                <img class="btn stop-stopwatch" src="img/stop-stopwatch.png" alt="Stop Stopwatch" title="Stop Stopwatch">
+                
+                <img id="reset-btn" class="reset-stopwatch" src="img/reset.png" alt="Reset Stopwatch" title="Reset Stopwatch">
+                <img class="btn lap-stopwatch" src="img/lap.png" alt="Lap" title="Lap">
+                
+                
+    
+            </div>
+    
+        </div>
+    
+        <!-- Timer -->
+        <div class="timer hidden">
+            <div class="wrapper">
+                <div class="time-container">
+                    <div class="hour">
+                        <p class="number" id="timer-hour">00</p>
+                        <p class="time-word">hours</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="min">
+                        <p class="number" id="timer-min">00</p>
+                        <p class="time-word">minutes</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="sec">
+                        <p class="number" id="timer-sec">00</p>
+                        <p class="time-word">seconds</p>
+                    </div>
+                    <p class="colon">:</p>
+                    <div class="milisecond">
+                        <p class="number" id="timer-ms">00</p>
+                        <p class="time-word">miliseconds</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="btns">
+                <img id="timer-btn" class="start-timer" src="img/start-timer.png" alt="Start Timer" title="Start Timer">
+                <img id="timer-btn" class="stop-timer" src="img/stop-timer.png" alt="Stop Timer" title="Stop Timer">
+                <img id="reset-btn" class="reset-timer" src="img/reset.png" alt="Reset Timer" title="Reset Timer">
+    
+            </div>
+    
+        </div>
+    </div>
+
+
+    <!--STYLES START-->
+    <div class="container hidden">
+
+        <!--FIRST STYLE-->
+      <div class="first-style-con">
+        <div class="first-page-container">
+            <div class="small-header">
+                <div class="small-logo-area">
+                    <h1 class="small-logo"><span>O</span>nline<span>C</span>lock</h1>
+                    <p class="small-sentence">manage the time</p>
+                </div>
+                <nav class="small-navbar">
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="fir-s-clock" class="actv-nvbr-itm active">Clock</a>
+                        <img src="img/clock.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="fir-s-stopwatch" class="actv-nvbr-itm">Stopwatch</a>
+                        <img src="img/stopwatch.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="fir-s-timer" class="actv-nvbr-itm">Timer</a>
+                        <img src="img/timer.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a>Styles</a>
+                        <img src="img/styles.png" alt="">
+                    </div>
+                </nav>
+            </div> <!-- small-header div end -->
+
+            <div class="s-res-menu-con">
+                <img id="fir-s-menu-btn" src="img/menu.png" alt="">
+                <div class="fir-s-hided-menu">
+                    <div id="fir-s-clck" class="s-res-icon-and-menu-item active">
+                        <a id="fir-s-res-clock">Clock</a>
+                        <img class="s-res-menu-img" src="img/clock.png" alt="">
+                     </div>
+                     <div id="fir-s-stpwtch" class="s-res-icon-and-menu-item">
+                        <a id="fir-s-res-stopwatch">Stopwatch</a>
+                        <img class="s-res-menu-img" src="img/stopwatch.png" alt="">
+                     </div>
+                     <div id="fir-s-tmr" class="s-res-icon-and-menu-item">
+                        <a id="fir-s-res-timer">Timer</a>
+                        <img class="s-res-menu-img" src="img/timer.png" alt="">
+                     </div>
+                     <div id="fir-s-styls">
+                        <a id="fir-s-res-styles">Styles</a>
+                        <img class="s-res-menu-img" src="img/styles.png" alt="">
+                     </div>
+                </div>
+            </div>
+
+    
+            <div class="small-outer-wrapper">
+                <!-- first small clock -->
+                <div id="first-small-main">
+                    <div class="small-items">
+                        <div class="small-clock-and-ampm">
+                            <div class="small-clock-container">
+                                <div class="s-hour">
+                                    <div class="small-clock-item small-hour"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-min">
+                                    <div class="small-clock-item small-min"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-sec">
+                                    <div class="small-clock-item small-sec"></div>
+                                </div>
+                            </div> <!-- small-clock-container div end -->
+                            <div class="small-am-pm">
+                                <div class="small-ampm">AM</div>
+                                <p class="small-other-ampm">PM</p>
+                            </div>
+                        </div> <!-- small-clock-and-ampm end -->
+    
+    
+                        <div>
+                            <p id="fir-s-date"></p>
+                        </div>
+                    </div> <!-- small-items end -->
+    
+    
+                    <div class="small-show-hide-date">
+                        <img id="fir-s-show-symbol" src="img/hided-select-bar.png" alt="">
+    
+                        <div id="fir-s-date-container">
+                            <img id="fir-s-hide-date" class="small-date-icon" src="img/hide-date.png" alt="">
+                            <img id="fir-s-show-date" class="small-date-icon" src="img/show-date.png" alt="">
+                        </div>
+    
+                    </div>
+                </div> <!-- small-main end -->
+    
+                <!-- first small stopwatch -->
+                <div id="first-small-stopwatch" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="fir-s-stopwatch-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="fir-s-stopwatch-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="fir-s-stopwatch-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="fir-s-stopwatch-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+                    <div class="fir-s-laps">
+                        <!--
+                            <div class="fir-s-lap active">
+                            <p>lap 2</p>
+                            <p>00:00</p>
+                        </div>
+                        <div class="fir-s-lap">
+                            <p>lap 1</p>
+                            <p>00:00</p>
+                        </div>
+                    -->
+                    </div>
+    
+                    <div class="small-btns">
+                        <img id="fir-s-start-stopwatch" class="s-btn" src="img/start-stopwatch.png">
+                        <img id="fir-s-stop-stopwatch" class="s-btn" src="img/stop-stopwatch.png">
+                        <img id="fir-s-reset-stopwatch" class="s-reset-btn" src="img/reset.png">
+                        <img id="fir-s-lap-stopwatch" class="s-btn" src="img/lap.png">
+                    </div>
+    
+                </div> <!-- first small stopwatch end -->
+    
+                <!-- first small timer -->
+                <div id="first-small-timer" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="fir-s-timer-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="fir-s-timer-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="fir-s-timer-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="fir-s-timer-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+    
+                    <div class="small-btns">
+                        <img id="fir-s-start-timer" class="s-timer-btn" src="img/start-timer.png" alt="">
+                        <img id="fir-s-stop-timer" class="s-timer-btn" src="img/stop-timer.png" alt="">
+                        <img id="fir-s-reset-timer" class="s-reset-btn" src="img/reset.png" alt="">
+                    </div>
+    
+                </div> <!-- first small timer end -->
+    
+            </div>
+        </div> <!-- first-page-container end -->
+    
+        <button id="first-theme" class="apply-btn">Apply</button>
+    
+      </div> <!-- first-style-con end -->
+    
+    
+    
+    
+    
+    
+    
+      <!--SECOND STYLE-->
+      <div class="second-style-con">
+        <div class="second-page-container">
+            <div class="small-header">
+                <div class="small-logo-area">
+                    <h1 class="small-logo"><span>O</span>nline<span>C</span>lock</h1>
+                    <p class="small-sentence">manage the time</p>
+                </div>
+                <nav class="small-navbar">
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="sec-s-clock" class="actv-nvbr-itm active">Clock</a>
+                        <img src="img/clock.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="sec-s-stopwatch" class="actv-nvbr-itm">Stopwatch</a>
+                        <img src="img/stopwatch.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="sec-s-timer" class="actv-nvbr-itm">Timer</a>
+                        <img src="img/timer.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a>Styles</a>
+                        <img src="img/styles.png" alt="">
+                    </div>
+                </nav>
+            </div> <!--small-header div and-->
+
+            <div class="s-res-menu-con">
+                <img id="sec-s-menu-btn" src="img/menu.png" alt="">
+                <div class="sec-s-hided-menu">
+                    <div id="sec-s-clck" class="s-res-icon-and-menu-item active">
+                        <a id="sec-s-res-clock">Clock</a>
+                        <img class="s-res-menu-img" src="img/clock.png" alt="">
+                     </div>
+                     <div id="sec-s-stpwtch" class="s-res-icon-and-menu-item">
+                        <a id="sec-s-res-stopwatch">Stopwatch</a>
+                        <img class="s-res-menu-img" src="img/stopwatch.png" alt="">
+                     </div>
+                     <div id="sec-s-tmr" class="s-res-icon-and-menu-item">
+                        <a id="sec-s-res-timer">Timer</a>
+                        <img class="s-res-menu-img" src="img/timer.png" alt="">
+                     </div>
+                     <div id="sec-s-styls">
+                        <a id="sec-s-res-styles">Styles</a>
+                        <img class="s-res-menu-img" src="img/styles.png" alt="">
+                     </div>
+                </div>
+            </div>
+    
+            <div class="small-outer-wrapper">
+                <!-- second small clock -->
+                <div id="second-small-main">
+                    <div class="small-items">
+                        <div class="small-clock-and-ampm">
+                            <div class="small-clock-container">
+                                <div class="s-hour">
+                                    <div class="small-clock-item small-hour"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-min">
+                                    <div class="small-clock-item small-min"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-sec">
+                                    <div class="small-clock-item small-sec"></div>
+                                </div>
+                            </div> <!-- small-clock-container end -->
+                            <div class="small-am-pm">
+                                <div class="small-ampm">AM</div>
+                                <p class="small-other-ampm">PM</p>
+                            </div>
+                        </div> <!-- small-clock-and-ampm end -->
+    
+    
+                        <div>
+                            <p id="sec-s-date"></p>
+                        </div>
+                    </div> <!-- small-items end -->
+    
+    
+                    <div class="small-show-hide-date">
+                        <img id="sec-s-show-symbol" src="img/hided-select-bar.png" alt="">
+    
+                        <div id="sec-s-date-container">
+                            <img id="sec-s-hide-date" class="small-date-icon" src="img/hide-date.png" alt="">
+                            <img id="sec-s-show-date" class="small-date-icon" src="img/show-date.png" alt="">
+                        </div>
+    
+                    </div>
+                </div> <!-- small-main end -->
+    
+                <!-- second small stopwatch -->
+                <div id="second-small-stopwatch" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="sec-s-stopwatch-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="sec-s-stopwatch-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="sec-s-stopwatch-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="sec-s-stopwatch-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+                    <div class="sec-s-laps">
+                        <!--
+                            <div class="sec-s-lap active">
+                            <p>lap 2</p>
+                            <p>00:00</p>
+                        </div>
+                        <div class="sec-s-lap">
+                            <p>lap 1</p>
+                            <p>00:00</p>
+                        </div>
+                    -->
+                    </div>
+    
+                    <div class="small-btns">
+                        <img id="sec-s-start-stopwatch" class="s-btn" src="img/start-stopwatch.png">
+                        <img id="sec-s-stop-stopwatch" class="s-btn" src="img/stop-stopwatch.png">
+                        <img id="sec-s-reset-stopwatch" class="s-reset-btn" src="img/reset.png">
+                        <img id="sec-s-lap-stopwatch" class="s-btn" src="img/lap.png">
+                    </div>
+    
+                </div> <!-- second small stopwatch end -->
+    
+                <!-- second small timer -->
+                <div id="second-small-timer" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="sec-s-timer-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="sec-s-timer-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="sec-s-timer-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="sec-s-timer-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+    
+                    <div class="small-btns">
+                        <img id="sec-s-start-timer" class="s-timer-btn" src="img/start-timer.png" alt="">
+                        <img id="sec-s-stop-timer" class="s-timer-btn" src="img/stop-timer.png" alt="">
+                        <img id="sec-s-reset-timer" class="s-reset-btn" src="img/reset.png" alt="">
+                    </div>
+    
+                </div> <!-- second small timer end -->
+    
+            </div>
+        </div> <!-- second-page-container end -->
+    
+        <button id="second-theme" class="apply-btn">Apply</button>
+    
+      </div> <!-- second-style-con end -->
+    
+    
+    
+    
+      <!--THIRD STYLE-->
+      <div class="third-style-con">
+        <div class="third-page-container">
+            <div class="small-header">
+                <div class="small-logo-area">
+                    <h1 class="small-logo"><span>O</span>nline<span>C</span>lock</h1>
+                    <p class="small-sentence">manage the time</p>
+                </div>
+                <nav class="small-navbar">
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="thi-s-clock" class="actv-nvbr-itm active">Clock</a>
+                        <img src="img/clock.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="thi-s-stopwatch" class="actv-nvbr-itm">Stopwatch</a>
+                        <img src="img/stopwatch.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="thi-s-timer" class="actv-nvbr-itm">Timer</a>
+                        <img src="img/timer.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a>Styles</a>
+                        <img src="img/styles.png" alt="">
+                    </div>
+                </nav>
+            </div> <!--small-header div and-->
+
+            <div class="s-res-menu-con">
+                <img id="thi-s-menu-btn" src="img/menu.png" alt="">
+                <div class="thi-s-hided-menu">
+                    <div id="thi-s-clck" class="s-res-icon-and-menu-item active">
+                        <a id="thi-s-res-clock">Clock</a>
+                        <img class="thi-s-res-menu-img" src="img/clock.png" alt="">
+                     </div>
+                     <div id="thi-s-stpwtch" class="s-res-icon-and-menu-item">
+                        <a id="thi-s-res-stopwatch">Stopwatch</a>
+                        <img class="thi-s-res-menu-img" src="img/stopwatch.png" alt="">
+                     </div>
+                     <div id="thi-s-tmr" class="s-res-icon-and-menu-item">
+                        <a id="thi-s-res-timer">Timer</a>
+                        <img class="thi-s-res-menu-img" src="img/timer.png" alt="">
+                     </div>
+                     <div id="thi-s-styls">
+                        <a id="thi-s-res-styles">Styles</a>
+                        <img class="thi-s-res-menu-img" src="img/styles.png" alt="">
+                     </div>
+                </div>
+            </div>
+    
+            <div class="small-outer-wrapper">
+                <!-- third small clock -->
+                <div id="third-small-main">
+                    <div class="small-items">
+                        <div class="small-clock-and-ampm">
+                            <div class="small-clock-container">
+                                <div class="s-hour">
+                                    <div class="small-clock-item small-hour"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-min">
+                                    <div class="small-clock-item small-min"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-sec">
+                                    <div class="small-clock-item small-sec"></div>
+                                </div>
+                            </div> <!-- small-clock-container end -->
+                            <div class="small-am-pm">
+                                <div class="small-ampm">AM</div>
+                                <p class="small-other-ampm">PM</p>
+                            </div>
+                        </div> <!-- small-clock-and-ampm end -->
+    
+    
+                        <div>
+                            <p id="thi-s-date"></p>
+                        </div>
+                    </div> <!-- small-items end -->
+    
+    
+                    <div class="small-show-hide-date">
+                        <img id="thi-s-show-symbol" src="img/hided-select-bar.png" alt="">
+    
+                        <div id="thi-s-date-container">
+                            <img id="thi-s-hide-date" class="small-date-icon" src="img/hide-date.png" alt="">
+                            <img id="thi-s-show-date" class="small-date-icon" src="img/show-date.png" alt="">
+                        </div>
+    
+                    </div>
+                </div> <!-- small-main end -->
+    
+                <!-- third small stopwatch -->
+                <div id="third-small-stopwatch" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="thi-s-stopwatch-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="thi-s-stopwatch-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="thi-s-stopwatch-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="thi-s-stopwatch-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+                    <div class="thi-s-laps">
+                        <!--
+                            <div class="thi-s-lap active">
+                            <p>lap 2</p>
+                            <p>00:00</p>
+                        </div>
+                        <div class="thi-s-lap">
+                            <p>lap 1</p>
+                            <p>00:00</p>
+                        </div>
+                    -->
+                    </div>
+    
+                    <div class="small-btns">
+                        <img id="thi-s-start-stopwatch" class="s-btn" src="img/start-stopwatch.png">
+                        <img id="thi-s-stop-stopwatch" class="s-btn" src="img/stop-stopwatch.png">
+                        <img id="thi-s-reset-stopwatch" class="s-reset-btn" src="img/reset.png">
+                        <img id="thi-s-lap-stopwatch" class="s-btn" src="img/lap.png">
+                    </div>
+    
+                </div> <!-- third small stopwatch end -->
+    
+                <!-- third small timer -->
+                <div id="third-small-timer" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="thi-s-timer-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="thi-s-timer-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="thi-s-timer-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="thi-s-timer-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+    
+                    <div class="small-btns">
+                        <img id="thi-s-start-timer" class="s-timer-btn" src="img/start-timer.png" alt="">
+                        <img id="thi-s-stop-timer" class="s-timer-btn" src="img/stop-timer.png" alt="">
+                        <img id="thi-s-reset-timer" class="s-reset-btn" src="img/reset.png" alt="">
+                    </div>
+    
+                </div> <!-- third small timer end -->
+    
+            </div>
+        </div> <!-- third-page-container end -->
+    
+        <button id="third-theme" class="apply-btn">Apply</button>
+    
+      </div> <!-- third-style-con end -->
+    
+    
+    
+    
+      <!--FOURTH STYLE-->
+      <div class="fourth-style-con">
+        <div class="fourth-page-container">
+            <div class="small-header">
+                <div class="small-logo-area">
+                    <h1 class="small-logo"><span>O</span>nline<span>C</span>lock</h1>
+                    <p class="small-sentence">manage the time</p>
+                </div>
+                <nav class="small-navbar">
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="fou-s-clock" class="actv-nvbr-itm active">Clock</a>
+                        <img src="img/clock.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="fou-s-stopwatch" class="actv-nvbr-itm">Stopwatch</a>
+                        <img src="img/stopwatch.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a id="fou-s-timer" class="actv-nvbr-itm">Timer</a>
+                        <img src="img/timer.png" alt="">
+                    </div>
+                    <div class="small-icon-and-nvbr-item">
+                        <a>Styles</a>
+                        <img src="img/styles.png" alt="">
+                    </div>
+                </nav>
+            </div> <!--small-header div and-->
+
+            <div class="s-res-menu-con">
+                <img id="fou-s-menu-btn" src="img/menu.png" alt="">
+                <div class="fou-s-hided-menu">
+                    <div id="fou-s-clck" class="s-res-icon-and-menu-item active">
+                        <a id="fou-s-res-clock">Clock</a>
+                        <img class="s-res-menu-img" src="img/clock.png" alt="">
+                     </div>
+                     <div id="fou-s-stpwtch" class="s-res-icon-and-menu-item">
+                        <a id="fou-s-res-stopwatch">Stopwatch</a>
+                        <img class="s-res-menu-img" src="img/stopwatch.png" alt="">
+                     </div>
+                     <div id="fou-s-tmr" class="s-res-icon-and-menu-item">
+                        <a id="fou-s-res-timer">Timer</a>
+                        <img class="s-res-menu-img" src="img/timer.png" alt="">
+                     </div>
+                     <div id="fou-s-styls">
+                        <a id="fou-s-res-styles">Styles</a>
+                        <img class="s-res-menu-img" src="img/styles.png" alt="">
+                     </div>
+                </div>
+            </div>
+    
+            <div class="small-outer-wrapper">
+                <!-- fourth small clock -->
+                <div id="fourth-small-main">
+                    <div class="small-items">
+                        <div class="small-clock-and-ampm">
+                            <div class="small-clock-container">
+                                <div class="s-hour">
+                                    <div class="small-clock-item small-hour"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-min">
+                                    <div class="small-clock-item small-min"></div>
+                                </div>
+                                <p class="small-colon">:</p>
+                                <div class="s-sec">
+                                    <div class="small-clock-item small-sec"></div>
+                                </div>
+                            </div> <!-- small-clock-container end -->
+                            <div class="small-am-pm">
+                                <div class="small-ampm">AM</div>
+                                <p class="small-other-ampm">PM</p>
+                            </div>
+                        </div> <!-- small-clock-and-ampm end -->
+    
+    
+                        <div>
+                            <p id="fou-s-date"></p>
+                        </div>
+                    </div> <!-- small-items end -->
+    
+    
+                    <div class="small-show-hide-date">
+                        <img id="fou-s-show-symbol" src="img/hided-select-bar.png" alt="">
+    
+                        <div id="fou-s-date-container">
+                            <img id="fou-s-hide-date" class="small-date-icon" src="img/hide-date.png" alt="">
+                            <img id="fou-s-show-date" class="small-date-icon" src="img/show-date.png" alt="">
+                        </div>
+    
+                    </div>
+                </div> <!-- small-main end -->
+    
+                <!-- fourth small stopwatch -->
+                <div id="fourth-small-stopwatch" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="fou-s-stopwatch-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="fou-s-stopwatch-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="fou-s-stopwatch-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="fou-s-stopwatch-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+                    <div class="fou-s-laps">
+                        <!--
+                            <div class="fou-s-lap active">
+                            <p>lap 2</p>
+                            <p>00:00</p>
+                        </div>
+                        <div class="fou-s-lap">
+                            <p>lap 1</p>
+                            <p>00:00</p>
+                        </div>
+                    -->
+                    </div>
+    
+                    <div class="small-btns">
+                        <img id="fou-s-start-stopwatch" class="s-btn" src="img/start-stopwatch.png">
+                        <img id="fou-s-stop-stopwatch" class="s-btn" src="img/stop-stopwatch.png">
+                        <img id="fou-s-reset-stopwatch" class="s-reset-btn" src="img/reset.png">
+                        <img id="fou-s-lap-stopwatch" class="s-btn" src="img/lap.png">
+                    </div>
+    
+                </div> <!-- fourth small stopwatch end -->
+    
+                <!-- fourth small timer -->
+                <div id="fourth-small-timer" class="hidden">
+                    <div class="small-wrapper">
+                        <div class="small-time-container">
+                            <div class="s-hour">
+                                <p class="small-number" id="fou-s-timer-hour">00</p>
+                                <p class="small-time-word">hours</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-min">
+                                <p class="small-number" id="fou-s-timer-min">00</p>
+                                <p class="small-time-word">minutes</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="s-sec">
+                                <p class="small-number" id="fou-s-timer-sec">00</p>
+                                <p class="small-time-word">seconds</p>
+                            </div>
+                            <p class="small-colon">:</p>
+                            <div class="small-milisecond">
+                                <p class="small-number" id="fou-s-timer-ms">00</p>
+                                <p class="small-time-word">miliseconds</p>
+                            </div>
+                        </div>
+                    </div> <!-- small-wrapper end -->
+    
+    
+                    <div class="small-btns">
+                        <img id="fou-s-start-timer" class="s-timer-btn" src="img/start-timer.png" alt="">
+                        <img id="fou-s-stop-timer" class="s-timer-btn" src="img/stop-timer.png" alt="">
+                        <img id="fou-s-reset-timer" class="s-reset-btn" src="img/reset.png" alt="">
+                    </div>
+    
+                </div> <!-- fourth small timer end -->
+    
+            </div>
+        </div> <!-- fourth-page-container end -->
+    
+        <button id="root-theme" class="apply-btn">Apply</button>
+    
+      </div> <!-- fourth-style-con end -->
+    
+    
+    </div>
+
+
+
+
+    <script src="jquery-3.6.4.slim.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

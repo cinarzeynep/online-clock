@@ -1,0 +1,2618 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
+/* figures */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --background: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
+    --logo: #232526;
+    --sentence: black;
+    --a: antiquewhite;
+    --c-item: peachpuff; /* '.clock-item' */
+    --c-col: #393e41; /* '.clock-container .colon' */
+    --primary: #393e41; /* '#ampm', '.other-ampm', '#date', '.time-container div .time-word' */
+    --symbol-hov: lightyellow; /* '#show-symbol:hover' */
+    --secondary: turquoise; /* '#hide-date.active', '#show-date.active' */
+    --number: peachpuff; /* '.time-container .number' */
+    --col: black; /* '.time-container .colon' */
+    --button-background: #27959f; /* '.btn', '#reset-btn', '#timer-btn' */
+    --button-border: rgb(1, 171, 171); /* '.btn', '#reset-btn', '#timer-btn' */
+}
+
+.green-white-theme {
+    --background: #F7F8F8; /* fallback for old browsers */
+    --background: -webkit-linear-gradient(to right, #ACBB78, #F7F8F8); /* Chrome 10-25, Safari 5.1-6 */
+    --background: linear-gradient(to right, #ACBB78, #F7F8F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --logo: #232526;
+    --sentence: black;
+    --a: cadetblue;
+    --c-item: #ACBB78; /* '.clock-item' */
+    --c-col: #393e41; /* '.clock-container .colon' */
+    --primary: #393e41; /* '#ampm', '.other-ampm', '#date', '.time-container div .time-word' */
+    --symbol-hov: cadetblue; /* '#show-symbol:hover' */
+    --secondary: #D8D8D8; /* '#hide-date.active', '#show-date.active' */
+    --number: #ACBB78; /* '.time-container .number' */
+    --col: black; /* '.time-container .colon' */
+    --button-background: #789395; /* '.btn', '#reset-btn', '#timer-btn' */
+    --button-border: #FFC069; /* '.btn', '#reset-btn', '#timer-btn' */
+}
+
+.yellow-green-theme {
+    --background: #16A085; /* fallback for old browsers */
+    --background: -webkit-linear-gradient(to right, #F4D03F, #16A085); /* Chrome 10-25, Safari 5.1-6 */
+    --background: linear-gradient(to right, #F4D03F, #16A085); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --logo: #232526;
+    --sentence: black;
+    --a: peachpuff;
+    --c-item: #393e41; /* '.clock-item' */
+    --c-col: #393e41; /* '.clock-container .colon' */
+    --primary: #393e41; /* '#ampm', '.other-ampm', '#date', '.time-container div .time-word' */
+    --symbol-hov: cadetblue; /* '#show-symbol:hover' */
+    --secondary: #FFD56F; /* '#hide-date.active', '#show-date.active' */
+    --number: #393e41; /* '.time-container .number' */
+    --col: black; /* '.time-container .colon' */
+    --button-background: #DEBACE; /* '.btn', '#reset-btn', '#timer-btn' */
+    --button-border: #FFC069; /* '.btn', '#reset-btn', '#timer-btn' */
+}
+
+.black-theme {
+    --background: #232526; /* fallback for old browsers */
+    --background: -webkit-linear-gradient(to right, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
+    --background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --logo: #FFD56F;
+    --sentence: #FFD56F;
+    --a: burlywood;
+    --c-item: whitesmoke; /* '.clock-item' */
+    --c-col: lightblue; /* '.clock-container .colon' */
+    --primary: wheat; /* '#ampm', '.other-ampm', '#date', '.time-container div .time-word' */
+    --symbol-hov: ; /* '#show-symbol:hover' */
+    --secondary: #FFD56F; /* '#hide-date.active', '#show-date.active' */
+    --number: wheat; /* '.time-container .number' */
+    --col: lightblue; /* '.time-container .colon' */
+    --button-background: #C0DBEA; /* '.btn', '#reset-btn', '#timer-btn' */
+    --button-border: #FFC069; /* '.btn', '#reset-btn', '#timer-btn' */
+}
+
+
+body {
+    background: var(--background);
+}
+
+head {
+    max-height: 100vh
+}
+
+a {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo_area {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: 'Tangerine', cursive;
+    font-weight: 600;
+    font-size: 40px;
+    color: var(--logo);
+}
+
+.logo span {
+    color: #ad5781;
+    font-size: 60px;
+}
+
+
+.sentence {
+    font-size: 15px;
+    font-family: 'Fasthand', cursive;
+    margin-top: -20px;
+    margin-left: 55px;
+    color: var(--sentence);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-and-nvbr-item {
+    margin: 0 8px;
+}
+
+
+.header .navbar a {
+    margin: 5px;
+    font-size: 27px;
+    font-family: 'Tangerine', cursive;
+    color: var(--a);
+    border-bottom: 1px solid transparent;
+}
+
+.header .navbar .active,
+.header .navbar a:hover {
+    border-color: sandybrown;
+    padding-bottom: 8px;
+}
+
+
+.menu-img {
+    max-height: 20px;
+    height: 80%;
+    width: auto;
+}
+
+.menu-img.applied {
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.res-menu-con {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    visibility: hidden;
+}
+
+#menu-btn {
+    height: 15px;
+    position: absolute;
+    margin-top: -30px;
+    margin-right: 25px;
+}
+
+#menu-btn.active {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 0 8px;
+}
+
+#menu-btn:hover {
+    cursor: pointer;
+}
+
+.hided-menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 5px 8px;
+    margin-top: -20px;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+}
+
+.hided-menu.active {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.res-icon-and-menu-item {
+    padding: 0.8px 4px 0.4px 4px;
+}
+
+.res-icon-and-menu-item.active {
+    border: 1px solid rgba(189, 189, 189, 0.585);
+    border-radius: 20px;
+    background-color: rgba(189, 189, 189, 0.585);
+}
+
+.res-menu-con .hided-menu a {
+    margin: 5px;
+    font-size: 12px;
+    font-family: 'Tangerine', cursive;
+    color: var(--a);
+    border-bottom: 1px solid transparent;
+}
+
+
+
+.res-menu-img {
+    max-height: 9px;
+    height: 70%;
+    width: auto;
+}
+
+.res-menu-img.applied {
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.outer-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 90px 40px 90px;
+    border: 3px solid burlywood;
+    max-height: 700px;
+    height: 70.5vh;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    height: 100%;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-and-ampm {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.clock-container div {
+    width: 20%;
+    text-align: center;
+}
+
+.clock-item {
+    position: relative;
+    font-size: 160px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--c-item);
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+    
+}
+
+.clock-container .colon {
+    font-size: 80px;
+    margin: 0px 10px 0px 10px;
+    color: var(--c-col);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.am-pm {
+    margin-top: 13%;
+    margin-left: 5%;
+}
+
+#ampm {
+    color: var(--primary);
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ad5781;
+    padding: 6px;
+    border-radius: 5px;
+    
+}
+
+.other-ampm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+
+#date {
+    color: var(--primary);
+    font-weight: 700;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.show-hide-date {
+    height: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    left: 100%
+}
+
+#show-symbol {
+    max-height: 12px;
+    height: 90%;
+    width: min-content;
+    transform: rotate(180deg);
+    border-radius: 4px;
+    border: 2px solid lightyellow;
+}
+
+#show-symbol.show {
+    transform: rotate(0deg);
+    margin-left: 160%; /*When has a px, date-container move with show-symbol (note to me)*/
+    margin-top: 50%;
+    border: 2px solid lightyellow;
+    background-color: lightyellow;
+    position: relative;
+}
+
+#show-symbol:hover {
+    cursor: pointer;
+    background-color: var(--symbol-hov);
+
+}
+
+.date-container {
+    display: grid;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: lightyellow;
+    height: 15%;
+    width: 0;
+    z-index: 1;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.5s;
+    padding-top: 14px;
+    margin-top: -10px;
+}
+
+.date-container.actv {
+    width: 26px;
+    transform-origin: left;
+}
+
+#hide-date.active {
+    background-color: var(--secondary);
+    border-radius: 30%;
+    padding: 1px;
+}
+
+#show-date.active {
+    background-color: var(--secondary);
+    border-radius: 30%;
+    padding: 1px;
+}
+
+.date-icon {
+    height: 22px;
+    width: auto;
+    margin: 6px 1px;
+    cursor: pointer;
+    padding: 1px;
+}
+
+.time-container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 90px 40px 90px;
+    border: 3px solid burlywood;
+    max-height: 700px;
+    height: 70.5vh;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.time-container div {
+    width: 20%;
+    text-align: center;
+}
+
+.time-container .number {
+    position: relative;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--number);
+}
+
+.time-container div .time-word {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.time-container .colon {
+    font-size: 30px;
+    color: var(--col);
+}
+
+.laps {
+    position: relative;
+    max-height: 100px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.laps .lap {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #8baaaa;
+    border-radius: 10px;
+    border: 1px solid #8baaaa;
+}
+
+.laps .lap p {
+    color: #393e41;
+}
+
+.btns {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--button-background);
+    box-shadow: 0 8px 32px 0 gray;
+    border: 1px solid var(--button-border);
+    height: 20px;
+    width: auto;
+}
+
+.btn:active {
+    box-shadow: none;
+}
+
+#reset-btn {
+    padding: 12px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--button-background);
+    box-shadow: 0 8px 32px 0 gray;
+    border: 1px solid var(--button-border);
+    height: 15px;
+    width: auto;
+}
+
+#reset-btn:active {
+    box-shadow: none;
+}
+
+#timer-btn {
+    padding: 12px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--button-background);
+    box-shadow: 0 8px 32px 0 gray;
+    border: 1px solid var(--button-border);
+    height: 15px;
+    width: auto;
+}
+
+#timer-btn:active {
+    box-shadow: none;
+}
+
+
+/* STYLES */
+/* style container start */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* FIRST STYLE START */
+.first-style-con {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 5px 100px 5px;
+}
+
+.first-page-container { /* works like the body */
+    background: #F7F8F8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ACBB78, #F7F8F8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ACBB78, #F7F8F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 400px;
+    width: 600px;
+    border: 1px solid gray;
+}
+
+.small-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.small-logo-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.small-logo {
+    font-family: 'Tangerine', cursive;
+    font-weight: 500;
+    font-size: 22px;
+    color: #232526;
+}
+
+.small-logo span {
+    color: #ad5781;
+    font-size: 40px;
+}
+
+/* for first, second, fourth style */
+.small-sentence {
+    font-size: 9px;
+    font-family: 'Fasthand', cursive;
+    margin-top: -10px;
+    margin-left: 30px;
+}
+
+.small-navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+.small-icon-and-nvbr-item {
+    margin: 0 4px;
+}
+
+.small-header .small-navbar a {
+    margin: 2px;
+    font-size: 15px;
+    font-family: 'Tangerine', cursive;
+    color: cadetblue;
+    border-bottom: 0.4px solid transparent;
+}
+
+/* for all small page styles */
+.small-header .small-navbar .actv-nvbr-itm.active,
+.small-header .small-navbar .actv-nvbr-itm:hover {
+    border-color: sandybrown;
+    padding-bottom: 5px;
+}
+
+/* for all small page styles */
+.small-header .small-navbar .actv-nvbr-itm {
+    cursor: pointer;
+}
+
+/* for first, second, fourth styles */
+.small-navbar img {
+    max-height: 10px;
+    height: 80%;
+    width: auto;
+}
+
+.s-res-menu-con {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 5px;
+    visibility: hidden;
+    
+}
+
+#fir-s-menu-btn {
+    height: 11px;
+    position: absolute;
+    margin-top: -21px;
+    margin-right: 25px;
+}
+
+#fir-s-menu-btn:hover {
+    cursor: pointer;
+}
+
+.fir-s-hided-menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    border: 1px solid gray;   /* var color verilecek */
+    border-radius: 20px;
+    padding: 4px 6px;
+    margin-top: -14px;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+}
+
+.fir-s-hided-menu.active {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.s-res-menu-con div div {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 0px 3px 0px 3px;
+    height: 11px
+}
+
+.s-res-menu-con div div.active {
+    border: 1px solid rgba(189, 189, 189, 0.585);
+    border-radius: 20px;
+    background-color: rgba(189, 189, 189, 0.585);
+}
+
+.s-res-icon-and-menu-item {
+    cursor: pointer;
+}
+
+.s-res-menu-con .fir-s-hided-menu a {
+    margin: 4px;
+    font-size: 7px;
+    font-family: 'Tangerine', cursive;
+    color: cadetblue;
+}
+
+.s-res-menu-img {
+    max-height: 5px;
+    height: 70%;
+    width: auto;
+    padding-top: 4px;
+}
+
+.small-outer-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* first small clock start */
+#first-small-main {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 45px 20px 45px;
+    border: 2px solid burlywood;
+    height: 280px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-items {
+    display: flex;
+    flex-direction: column;
+    max-height: 250px;
+    height: 100%;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-clock-and-ampm {
+    display: flex;
+    flex-direction: row;
+}
+
+.small-clock-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.small-clock-container div {
+    width: 20%;
+    text-align: center;
+}
+
+.small-clock-item {
+    position: relative;
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 1;
+    color: #ACBB78;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.small-clock-container .small-colon {
+    font-size: 40px;
+    margin: 0px 5px 0px 5px;
+    color: #393e41;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.small-am-pm {
+    margin-top: 13%;
+    margin-left: 5%;
+}
+
+.small-ampm {
+    color: #393e41;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ad5781;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.small-other-ampm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #393e41;
+}
+
+#fir-s-date {
+    color: #393e41;
+    font-weight: 700;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.small-show-hide-date {
+    height: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    left: 16.7%;
+}
+
+#fir-s-show-symbol {
+    height: 8px;
+    width: min-content;
+    transform: rotate(180deg);
+    border-radius: 4px;
+    border: 1px solid lightyellow;
+}
+
+#fir-s-show-symbol.show {
+    transform: rotate(0deg);
+    margin-left: 130%; /*When has a px, date-container moves with show-symbol (note to me)*/
+    margin-top: 80%;
+    border: 1px solid lightyellow;
+    background-color: lightyellow;
+}
+
+#fir-s-show-symbol:hover {
+    cursor: pointer;
+    background-color: cadetblue;
+}
+
+#fir-s-date-container {
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: lightyellow;
+    height: 50px;
+    width: 0;
+    z-index: 1;
+    position: absolute;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 7px;
+    margin-top: -5px;
+}
+
+#fir-s-date-container.actv {
+    width: 13px;
+    transform-origin: left;
+}
+
+.small-date-icon {
+    height: 11px;
+    width: auto;
+    margin: 3px 0.5px;
+    cursor: pointer;
+    padding: 0.5px;
+}
+
+#fir-s-hide-date.active {
+    background-color: #D8D8D8;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+
+#fir-s-show-date.active {
+    background-color: #D8D8D8;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+/* first small clock end */
+
+
+/* first small stopwatch start */
+.small-time-container {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 45px 20px 45px;
+    border: 2px solid burlywood;
+    height: 190px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.small-time-container div {
+    width: 20%;
+    text-align: center
+}
+
+.small-time-container .small-number {
+    position: relative;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+    color: #ACBB78;
+}
+
+.small-time-container div .small-time-word {
+    font-size: 5px;
+    font-weight: 500;
+    color: #393e41;
+    text-transform: uppercase;
+}
+
+.small-time-container .small-colon {
+    font-size: 15px;
+    color: black;
+}
+
+.fir-s-laps {
+    position: relative;
+    max-height: 50px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 auto;
+    margin-top: 7px;
+}
+
+.fir-s-laps .fir-s-lap {
+    width: 50%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    background: #8baaaa;
+    border-radius: 7px;
+    border: 1px solid #8baaaa;
+}
+
+.fir-s-laps .fir-s-lap p {
+    font-size: 10px;
+    color: #393e41;
+}
+
+.small-btns {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.s-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #789395;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 14px;
+    width: auto;
+}
+
+.s-btn:active {
+    box-shadow: none;
+}
+
+.s-reset-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #789395;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 10px;
+    width: auto;
+}
+
+.s-reset-btn:active {
+    box-shadow: none;
+}
+/* first small stopwatch end */
+
+
+/* first small timer start */
+.s-timer-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #789395;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 10px;
+    width: auto;
+}
+
+.s-timer-btn:active {
+    box-shadow: none;
+}
+/* first small timer end */
+
+
+/* for all apply button */
+.apply-btn {
+    border: 2px solid gray;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-family: 'Fasthand', cursive;
+    font-weight: 500;
+    font-size: 16px;
+}
+/* FIRST STYLE END */
+
+
+/* SECOND STYLE START */
+.second-style-con {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 5px 100px 5px;
+}
+
+.second-page-container { /* works like the body */
+    background: #16A085;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F4D03F, #16A085);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F4D03F, #16A085); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 400px;
+    width: 600px;
+    border: 1px solid gray;
+}
+
+.second-style-con .small-header .small-navbar a {
+    margin: 2px;
+    font-size: 15px;
+    font-family: 'Tangerine', cursive;
+    color: peachpuff;
+    border-bottom: 0.4px solid transparent;
+}
+
+#sec-s-menu-btn {
+    height: 11px;
+    position: absolute;
+    margin-top: -21px;
+    margin-right: 25px;
+}
+
+#sec-s-menu-btn:hover {
+    cursor: pointer;
+}
+
+.sec-s-hided-menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    border: 1px solid gray;   /* var color verilecek */
+    border-radius: 20px;
+    padding: 4px 6px;
+    margin-top: -14px;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+}
+
+.sec-s-hided-menu.active {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.s-res-menu-con .sec-s-hided-menu a {
+    margin: 4px;
+    font-size: 7px;
+    font-family: 'Tangerine', cursive;
+    color: peachpuff;
+}
+
+
+/* second small clock start */
+#second-small-main {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 45px 20px 45px;
+    border: 2px solid burlywood;
+    height: 280px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-style-con .small-clock-item {
+    position: relative;
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 1;
+    color: #393e41;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.second-style-con .small-clock-container .small-colon {
+    font-size: 40px;
+    margin: 0px 5px 0px 5px;
+    color: #393e41;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.second-style-con .small-ampm {
+    color: #393e41;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ad5781;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.second-style-con .small-other-ampm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #393e41;
+}
+
+#sec-s-date {
+    color: #393e41;
+    font-weight: 700;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+#sec-s-show-symbol {
+    height: 8px;
+    width: min-content;
+    transform: rotate(180deg);
+    border-radius: 4px;
+    border: 1px solid lightyellow;
+    background-color: lightyellow;
+}
+
+#sec-s-show-symbol.show {
+    transform: rotate(0deg);
+    margin-left: 130%; /*When has a px, date-container moves with show-symbol (note to me)*/
+    margin-top: 80%;
+    border: 1px solid lightyellow;
+    background-color: lightyellow;
+}
+
+#sec-s-show-symbol:hover {
+    cursor: pointer;
+    background-color: cadetblue;
+}
+
+#sec-s-date-container {
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: lightyellow;
+    height: 50px;
+    width: 0;
+    z-index: 1;
+    position: absolute;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 7px;
+    margin-top: -5px;
+}
+
+#sec-s-date-container.actv {
+    width: 13px;
+    transform-origin: left;
+}
+
+#sec-s-hide-date.active {
+    background-color: #FFD56F;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+
+#sec-s-show-date.active {
+    background-color: #FFD56F;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+/* second small clock end */
+
+/* second small stopwatch start */
+.second-style-con .small-time-container .small-number {
+    position: relative;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+    color: #393e41;
+}
+
+.second-style-con .small-time-container div .small-time-word {
+    font-size: 5px;
+    font-weight: 500;
+    color: #393e41;
+    text-transform: uppercase;
+}
+
+.second-style-con .small-time-container .small-colon {
+    font-size: 15px;
+    color: black;
+}
+
+.sec-s-laps {
+    position: relative;
+    max-height: 50px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 auto;
+    margin-top: 7px;
+}
+
+.sec-s-laps .sec-s-lap {
+    width: 50%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    background: #8baaaa;
+    border-radius: 7px;
+    border: 1px solid #8baaaa;
+}
+
+.sec-s-laps .sec-s-lap p {
+    font-size: 10px;
+    color: #393e41;
+}
+
+.second-style-con .s-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #DEBACE;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 14px;
+    width: auto;
+}
+
+.second-style-con .s-btn:active {
+    box-shadow: none;
+}
+
+.second-style-con .s-reset-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #DEBACE;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 10px;
+    width: auto;
+}
+
+.second-style-con .s-reset-btn:active {
+    box-shadow: none;
+}
+/* second small stopwatch end */
+
+
+/* second small timer start */
+.second-style-con .s-timer-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #DEBACE;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 10px;
+    width: auto;
+}
+
+.second-style-con .s-timer-btn:active {
+    box-shadow: none;
+}
+/* second small timer end */
+/* SECOND STYLE END */
+
+
+/* THIRD STYLE START */
+.third-style-con {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 5px 100px 5px;
+}
+
+.third-page-container { /* works like the body */
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 400px;
+    width: 600px;
+    border: 1px solid gray;
+}
+
+.third-style-con .small-logo {
+    font-family: 'Tangerine', cursive;
+    font-weight: 500;
+    font-size: 22px;
+    color: #FFD56F;
+}
+
+.third-style-con .small-sentence {
+    font-size: 9px;
+    font-family: 'Fasthand', cursive;
+    margin-top: -10px;
+    margin-left: 30px;
+    color: #FFD56F;
+}
+
+.third-style-con .small-header .small-navbar a {
+    margin: 2px;
+    font-size: 15px;
+    font-family: 'Tangerine', cursive;
+    color: burlywood;
+    border-bottom: 0.4px solid transparent;
+}
+
+.third-style-con .small-navbar img {
+    max-height: 10px;
+    height: 80%;
+    width: auto;
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+#thi-s-menu-btn {
+    height: 11px;
+    position: absolute;
+    margin-top: -21px;
+    margin-right: 25px;
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
+#thi-s-menu-btn:hover {
+    cursor: pointer;
+}
+
+.thi-s-hided-menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    border: 1px solid gray;   /* var color verilecek */
+    border-radius: 20px;
+    padding: 4px 6px;
+    margin-top: -11px;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+}
+
+.thi-s-hided-menu.active {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.s-res-menu-con .thi-s-hided-menu a {
+    margin: 4px;
+    font-size: 7px;
+    font-family: 'Tangerine', cursive;
+    color: burlywood;
+}
+
+.thi-s-res-menu-img {
+    height: 5px;
+    width: auto;
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 2px;
+    margin-top: 2px;
+}
+
+
+/* third small clock start */
+#third-small-main {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 45px 20px 45px;
+    border: 2px solid burlywood;
+    height: 280px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.third-style-con .small-clock-item {
+    position: relative;
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 1;
+    color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.third-style-con .small-clock-container .small-colon {
+    font-size: 40px;
+    margin: 0px 5px 0px 5px;
+    color: lightblue;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.third-style-con .small-ampm {
+    color: wheat;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ad5781;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.third-style-con .small-other-ampm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: wheat;
+}
+
+#thi-s-date {
+    color: wheat;
+    font-weight: 700;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+#thi-s-show-symbol {
+    height:8px;
+    width: min-content;
+    transform: rotate(180deg);
+    border-radius: 4px;
+    border: 1px solid lightyellow;
+    background-color: lightyellow;
+}
+
+#thi-s-show-symbol.show {
+    transform: rotate(0deg);
+    margin-left: 130%; /*When has a px, date-container moves with show-symbol (note to me)*/
+    margin-top: 80%;
+    border: 1px solid lightyellow;
+    background-color: lightyellow;
+}
+
+#thi-s-show-symbol:hover {
+    cursor: pointer;
+}
+
+#thi-s-date-container {
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: lightyellow;
+    height: 50px;
+    width: 0;
+    z-index: 1;
+    position: absolute;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 7px;
+    margin-top: -5px;
+}
+
+#thi-s-date-container.actv {
+    width: 13px;
+    transform-origin: left;
+}
+
+.third-style-con #thi-s-hide-date.active {
+    background-color: #FFD56F;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+
+#thi-s-show-date.active {
+    background-color: #FFD56F;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+/* third small clock end */
+
+/* third small stopwatch start */
+.third-style-con .small-time-container .small-number {
+    position: relative;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+    color: wheat;
+}
+
+.third-style-con .small-time-container div .small-time-word {
+    font-size: 5px;
+    font-weight: 500;
+    color: wheat;
+    text-transform: uppercase;
+}
+
+.third-style-con .small-time-container .small-colon {
+    font-size: 15px;
+    color: lightblue;
+}
+
+.thi-s-laps {
+    position: relative;
+    max-height: 50px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 auto;
+    margin-top: 7px;
+}
+
+.thi-s-laps .thi-s-lap {
+    width: 50%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    background: #8baaaa;
+    border-radius: 7px;
+    border: 1px solid #8baaaa;
+}
+
+.thi-s-laps .thi-s-lap p {
+    font-size: 10px;
+    color: #393e41;
+}
+
+.third-style-con .s-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #C0DBEA;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 14px;
+    width: auto;
+}
+
+.third-style-con .s-btn:active {
+    box-shadow: none;
+}
+
+.third-style-con .s-reset-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #C0DBEA;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 10px;
+    width: auto;
+}
+
+.third-style-con .s-reset-btn:active {
+    box-shadow: none;
+}
+/* third small stopwatch end */
+
+
+/* third small timer start */
+.third-style-con .s-timer-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #C0DBEA;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid #FFC069;
+    height: 10px;
+    width: auto;
+}
+
+.third-style-con .s-timer-btn:active {
+    box-shadow: none;
+}
+/* third small timer end */
+/* THIRD STYLE END */
+
+
+/* FOURTH STYLE START */
+.fourth-style-con {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 5px 60px 5px;
+}
+
+.fourth-page-container { /* works like the body */
+    background: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
+    height: 400px;
+    width: 600px;
+    border: 1px solid gray;
+}
+
+.fourth-style-con .small-header .small-navbar a {
+    margin: 2px;
+    font-size: 15px;
+    font-family: 'Tangerine', cursive;
+    color: antiquewhite;
+    border-bottom: 0.4px solid transparent;
+}
+
+#fou-s-menu-btn {
+    height: 11px;
+    position: absolute;
+    margin-top: -21px;
+    margin-right: 25px;
+}
+
+#fou-s-menu-btn:hover {
+    cursor: pointer;
+}
+
+.fou-s-hided-menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    border: 1px solid gray;   /* var color verilecek */
+    border-radius: 20px;
+    padding: 4px 6px;
+    margin-top: -14px;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+}
+
+.fou-s-hided-menu.active {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.s-res-menu-con .fou-s-hided-menu a {
+    margin: 4px;
+    font-size: 7px;
+    font-family: 'Tangerine', cursive;
+    color: antiquewhite;
+}
+
+
+/* fourth small clock start */
+#fourth-small-main {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 45px 20px 45px;
+    border: 2px solid burlywood;
+    height: 280px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.fourth-style-con .small-clock-item {
+    position: relative;
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 1;
+    color: peachpuff;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.fourth-style-con .small-clock-container .small-colon {
+    font-size: 40px;
+    margin: 0px 5px 0px 5px;
+    color: #393e41;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.fourth-style-con .small-ampm {
+    color: #393e41;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ad5781;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.fourth-style-con .small-other-ampm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #393e41;
+}
+
+#fou-s-date {
+    color: #393e41;
+    font-weight: 700;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+#fou-s-show-symbol {
+    height: 8px;
+    width: min-content;
+    transform: rotate(180deg);
+    border-radius: 4px;
+    border: 1px solid lightyellow;
+}
+
+#fou-s-show-symbol.show {
+    transform: rotate(0deg);
+    margin-left: 130%; /*When has a px, date-container moves with show-symbol (note to me)*/
+    margin-top: 80%;
+    border: 1px solid lightyellow;
+    background-color: lightyellow;
+}
+
+#fou-s-show-symbol:hover {
+    cursor: pointer;
+    background-color: lightyellow;
+}
+
+#fou-s-date-container {
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: lightyellow;
+    height: 50px;
+    width: 0;
+    z-index: 1;
+    position: absolute;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 7px;
+    margin-top: -5px;
+}
+
+#fou-s-date-container.actv {
+    width: 13px;
+    transform-origin: left;
+}
+
+.fourth-style-con #fou-s-hide-date.active {
+    background-color: turquoise;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+
+#fou-s-show-date.active {
+    background-color: turquoise;
+    border-radius: 30%;
+    padding: 0.5px;
+}
+/* fourth small clock end */
+
+/* fourth small stopwatch start */
+.fourth-style-con .small-time-container .small-number {
+    position: relative;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+    color: peachpuff;
+}
+
+.fourth-style-con .small-time-container div .small-time-word {
+    font-size: 5px;
+    font-weight: 500;
+    color: #393e41;
+    text-transform: uppercase;
+}
+
+.fourth-style-con .small-time-container .small-colon {
+    font-size: 15px;
+    color: black;
+}
+
+.fou-s-laps {
+    position: relative;
+    max-height: 50px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 auto;
+    margin-top: 7px;
+}
+
+.fou-s-laps .fou-s-lap {
+    width: 50%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    background: #8baaaa;
+    border-radius: 7px;
+    border: 1px solid #8baaaa;
+}
+
+.fou-s-laps .fou-s-lap p {
+    font-size: 10px;
+    color: #393e41;
+}
+
+.fourth-style-con .s-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #27959f;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid rgb(1, 171, 171);
+    height: 14px;
+    width: auto;
+}
+
+.fourth-style-con .s-btn:active {
+    box-shadow: none;
+}
+
+.fourth-style-con .s-reset-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #27959f;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid rgb(1, 171, 171);
+    height: 10px;
+    width: auto;
+}
+
+.fourth-style-con .s-reset-btn:active {
+    box-shadow: none;
+}
+/* fourth small stopwatch end */
+
+
+/* fourth small timer start */
+.fourth-style-con .s-timer-btn {
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #27959f;
+    box-shadow: 0 6px 18px 0 gray;
+    border: 1px solid rgb(1, 171, 171);
+    height: 10px;
+    width: auto;
+}
+
+.fourth-style-con .s-timer-btn:active {
+    box-shadow: none;
+}
+/* fourth small timer end */
+/* FOURTH STYLE END */
+
+
+
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 30px;
+    }
+    .logo span {
+        font-size: 50px;
+    }
+    .sentence {
+        font-size: 11px;
+    }
+    .header .navbar a {
+        font-size: 20px;
+    }
+    .menu-img {
+        height: 14px;
+    }
+    .clock-item {
+        font-size: 75px;
+    }
+    .clock-container .colon {
+        font-size: 30px;
+    }
+    #ampm {
+        font-size: 15px;
+    }
+    .other-ampm {
+        font-size: 10px;
+    }
+    #date {
+        font-size: 9px;
+    }
+    #show-symbol {
+        height: 9px;
+    }
+    .date-container {
+        height: 10%;
+        padding-top: 10px;
+    }
+    .date-container.actv {
+        width: 21px;
+    }
+    .date-icon {
+        height: 15px;
+        padding: 0px 0.5px 3px 0.5px;
+    }
+    .time-container .number {
+        font-size: 35px;
+    }
+    .time-container div .time-word {
+        font-size: 7px;
+    }
+    .time-container .colon {
+        font-size: 18px;
+    }
+    .laps {
+        max-height: 70px;
+    }
+    .laps .lap {
+        padding: 5px;
+    }
+    .laps .lap p {
+        font-size: 11px;
+    }
+    .btns {
+        margin-top: 15px;
+    }
+    .btn {
+        height: 14px;
+    }
+    #reset-btn {
+        height: 10px;
+    }
+    #timer-btn {
+        height: 10px;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .logo_area {
+        flex-direction: row;
+    }
+    .logo {
+        font-size: 25px;
+    }
+    .logo span {
+        font-size: 44px;
+    }
+    .sentence {
+        font-size: 11px;
+        margin-top: 38px;
+        margin-left: 50px;
+    }
+    .navbar {
+        display: none;
+    }
+    .header .navbar a {
+        font-size: 20px;
+    }
+    .menu-img {
+        height: 10px;
+    }
+    .res-menu-con {
+        visibility: visible;
+    }
+    .main {
+        margin: 20px 30px 30px 30px;
+        width: auto;
+        height: 75vh;
+    }
+    .clock-item {
+        font-size: 44px;
+    }
+    .clock-container .colon {
+        font-size: 20px;
+        margin: 0px 7px 0px 7px;
+    }
+    #ampm {
+        font-size: 11px;
+    }
+    .other-ampm {
+        font-size: 8px;
+    }
+    #date {
+        font-size: 8px;
+    }
+    #show-symbol {
+        height: 9px;
+    }
+    .date-container {
+        height: 10%;
+        padding-top: 10px;
+    }
+    .date-container.actv {
+        width: 21px;
+    }
+    .date-icon {
+        height: 15px;
+        padding: 0px 0.5px 3px 0.5px;
+    }
+    .time-container {
+        margin: 20px 30px 30px 30px;
+        width: auto;
+        height: 75vh;
+    }
+    .time-container .number {
+        font-size: 35px;
+    }
+    .time-container div .time-word {
+        font-size: 7px;
+    }
+    .time-container .colon {
+        font-size: 18px;
+    }
+    .laps {
+        max-height: 70px;
+    }
+    .laps .lap {
+        padding: 5px;
+    }
+    .laps .lap p {
+        font-size: 11px;
+    }
+    .btns {
+        margin-top: 15px;
+    }
+    .btn {
+        height: 12px;
+    }
+    #reset-btn {
+        height: 8px;
+    }
+    #timer-btn {
+        height: 8px;
+    }
+    /* small pages */
+    .first-page-container {
+        height: 486px;
+        width: 320px;
+    }
+    .small-logo-area {
+        flex-direction: row;
+    }
+    .small-logo {
+        font-size: 17px;
+    }
+    .small-logo span {
+        font-size: 30px;
+    }
+    .small-sentence {
+        font-size: 8px;
+        margin-left: 35px;
+        margin-top: 25px;
+    }
+    .small-navbar {
+        display: none;
+    }
+    .small-header .small-navbar a {
+        font-size: 10px;
+    }
+    .small-navbar img {
+        height: 6px;
+    }
+    .s-res-menu-con {
+        visibility: visible;
+    }
+    .s-res-menu-con div div {
+        height: 15px;
+    }
+    .s-res-menu-con .fir-s-hided-menu a {
+        font-size: 9px;
+    }
+    .s-res-menu-img {
+        height: 5px;
+    }
+    #first-small-main {
+        height: 370px;
+        margin: 20px 20px 20px 20px;
+    }
+    .small-clock-item {
+        font-size: 45px;
+    }
+    .small-clock-container .small-colon {
+        font-size: 20px;
+        margin: 0px 5px 0px 5px; 
+    }
+    .small-ampm {
+        font-size: 9px;
+    }
+    .small-other-ampm {
+        font-size: 7px;
+    }
+    #fir-s-date {
+        font-size: 7px;
+        margin-top: 15px;
+    }
+    .small-show-hide-date {
+        left: 10%;
+    }
+    #fir-s-show-symbol {
+        height: 6px;
+    }
+    #fir-s-show-symbol.show {
+        margin-left: 110%;
+    }
+    #fir-s-date-container {
+        height: 40px;
+    }
+    #fir-s-date-container.actv {
+        width: 10px;
+    }
+    .small-date-icon {
+        height: 8px;
+        width: auto;
+        margin: 3px 0.5px;
+        padding: 0.5px;
+    }
+    /* first small clock end */
+
+    /* first small stopwatch start */
+    .small-time-container {
+        margin: 20px 20px 15px 20px;
+        height: 280px;
+    }
+    .small-time-container .small-number {
+        font-size: 30px;
+    }
+    .fir-s-laps .fir-s-lap {
+        height: 15px;
+    }
+    .fir-s-laps .fir-s-lap p {
+        font-size: 7px;
+    }
+    .s-btn {
+        height: 10px;
+    }
+    .s-reset-btn {
+        height: 6px;
+    }
+    /* first small stopwatch end */
+    
+    
+    /* first small timer start */
+    .s-timer-btn {
+        height: 6px;
+    }
+    /* first small timer end */
+    
+    
+    /* for all apply button */
+    .apply-btn {
+        margin-top: 6px;
+        font-size: 10px;
+    }
+    /* FIRST STYLE END */
+
+    /* SECOND STYLE START */
+    .second-page-container {
+        height: 486px;
+        width: 320px;
+    }
+    .second-style-con .small-header .small-navbar a {
+        font-size: 10px;
+    }
+    
+    
+    /* second small clock start */
+    .s-res-menu-con .sec-s-hided-menu a {
+        font-size: 9px;
+    }
+    #second-small-main {
+        height: 370px;
+        margin: 20px 20px 20px 20px;
+    }
+    .second-style-con .small-clock-item {
+        font-size: 45px;
+    }
+    .second-style-con .small-clock-container .small-colon {
+        font-size: 20px;
+        margin: 0px 5px 0px 5px;
+    }
+    .second-style-con .small-ampm {
+        font-size: 9px;
+    }
+    .second-style-con .small-other-ampm {
+        font-size: 7px;
+    }
+    #sec-s-date {
+        font-size: 7px;
+        margin-top: 15px;
+    }
+    #sec-s-show-symbol {
+        height: 6px;
+    }
+    #sec-s-show-symbol.show {
+        margin-left: 110%;
+    }
+    #sec-s-date-container {
+        height: 40px;
+    }
+    #sec-s-date-container.actv {
+        width: 10px;
+    }
+    /* second small clock end */
+
+    /* second small stopwatch start */
+    .second-style-con .small-time-container .small-number {
+        font-size: 30px;
+    }
+    .sec-s-laps .sec-s-lap {
+        height: 15px;
+    }
+    .sec-s-laps .sec-s-lap p {
+        font-size: 7px;
+    }
+    .second-style-con .s-btn {
+        height: 10px;
+    }
+    .second-style-con .s-reset-btn {
+        height: 6px;
+    }
+    /* second small stopwatch end */
+    
+    /* second small timer start */
+    .second-style-con .s-timer-btn {
+        height: 6px;
+    }
+    /* second small timer end */
+    /* SECOND STYLE END */
+
+
+    /* THIRD STYLE START */
+    .third-page-container {
+        height: 486px;
+        width: 320px;
+    }
+    .third-style-con .small-logo {
+        font-size: 17px;
+    }
+    .third-style-con .small-sentence {
+        font-size: 8px;
+        margin-left: 35px;
+        margin-top: 25px;
+    }
+    .third-style-con .small-header .small-navbar a {
+        font-size: 10px;
+    }
+    .third-style-con .small-navbar img {
+        height: 6px;
+    }
+    
+    /* third small clock start */
+    .s-res-menu-con .thi-s-hided-menu a {
+        font-size: 9px;
+    }
+    #third-small-main {
+        height: 370px;
+        margin: 23px 20px 20px 20px;
+    }
+    .third-style-con .small-clock-item {
+        font-size: 45px;
+    }
+    .third-style-con .small-clock-container .small-colon {
+        font-size: 20px;
+        margin: 0px 5px 0px 5px;
+    }
+    .third-style-con .small-ampm {
+        font-size: 9px;
+    }
+    .third-style-con .small-other-ampm {
+        font-size: 7px;
+    }
+    #thi-s-date {
+        font-size: 7px;
+        margin-top: 15px;
+    }
+    #thi-s-show-symbol {
+        height: 6px;
+    }
+    #thi-s-show-symbol.show {
+        margin-left: 110%;
+    }
+    #thi-s-date-container {
+        height: 40px;
+    }
+    #thi-s-date-container.actv {
+        width: 10px;
+    }
+    /* third small clock end */
+    
+    /* third small stopwatch start */
+    #third-small-stopwatch .small-time-container {
+        margin: 23px 20px 15px 20px;
+        height: 280px;
+        gap: 5px;
+    }
+    #third-small-timer .small-time-container {
+        margin: 23px 20px 15px 20px;
+        height: 280px;
+        gap: 5px;
+    }
+    .third-style-con .small-time-container .small-number {
+        font-size: 30px;
+    }
+    .thi-s-laps .thi-s-lap {
+        height: 15px;
+    }
+    .thi-s-laps .thi-s-lap p {
+        font-size: 7px;
+    }
+    .third-style-con .s-btn {
+        height: 10px;
+    }
+    .third-style-con .s-reset-btn {
+        height: 6px;
+    }
+    /* third small stopwatch end */
+
+    /* third small timer start */
+    .third-style-con .s-timer-btn {
+        height: 6px;
+    }
+    /* third small timer end */
+    /* THIRD STYLE END */
+
+
+    /* FOURTH STYLE START */
+    .fourth-page-container {
+        height: 486px;
+        width: 320px;
+    }
+    .fourth-style-con .small-header .small-navbar a {
+        font-size: 10px;
+    }
+    /* fourth small clock start */
+    .s-res-menu-con .fou-s-hided-menu a {
+        font-size: 9px;
+    }
+    #fourth-small-main {
+        height: 370px;
+        margin: 20px 20px 20px 20px;
+    }
+    .fourth-style-con .small-clock-item {
+        font-size: 45px;
+    }
+    .fourth-style-con .small-clock-container .small-colon {
+        font-size: 20px;
+        margin: 0px 5px 0px 5px;
+    }
+    .fourth-style-con .small-ampm {
+        font-size: 9px;
+    }
+    .fourth-style-con .small-other-ampm {
+        font-size: 7px;
+    }
+    #fou-s-date {
+        font-size: 7px;
+        margin-top: 15px;
+    }
+    #fou-s-show-symbol {
+        height: 6px;
+    }
+    #fou-s-show-symbol.show {
+        margin-left: 110%;
+    }
+    #fou-s-date-container {
+        height: 40px;
+    }
+    #fou-s-date-container.actv {
+        width: 10px;
+    }
+    /* fourth small clock end */
+    
+    /* fourth small stopwatch start */
+    .fourth-style-con .small-time-container .small-number {
+        font-size: 30px;
+    }
+    .fou-s-laps .fou-s-lap {
+        height: 15px;
+    }
+    .fou-s-laps .fou-s-lap p {
+        font-size: 7px;
+    }
+    .fourth-style-con .s-btn {
+        height: 10px;
+    }
+    .fourth-style-con .s-reset-btn {
+        height: 6px;
+    }
+    /* fourth small stopwatch end */ 
+    
+    /* fourth small timer start */
+    .fourth-style-con .s-timer-btn {
+        height: 6px;
+    }
+    /* fourth small timer end */
+    /* fourth STYLE END */
+}
+
+@media screen and (max-width:375px) {
+    .clock-item {
+        font-size: 38px;
+    }
+    .clock-container .colon {
+        font-size: 15px;
+        margin: 0px 5px 0px 5px;
+    }
+    .date-icon {
+        height: 15px;
+        padding: 0px 0.5px 3px 0.5px;
+    }
+    .btn {
+        height: 14px;
+    }
+    #reset-btn {
+        height: 10px;
+    }
+    #timer-btn {
+        height: 10px;
+    }
+    /* small pages */
+    .first-page-container {
+        height: 425px;
+        width: 280px;
+    }
+    #first-small-main {
+        height: 320px;
+        margin: 19px 20px 20px 20px;
+    }
+    .small-clock-item {
+        font-size: 32px;
+    }
+    .small-clock-container .small-colon {
+        font-size: 22px;
+        margin: 0px 5px 0px 5px;
+    }
+    .small-show-hide-date {
+        left: 11.5%;
+    }
+    #fir-s-show-symbol {
+        height: 5px;
+    }
+    #fir-s-show-symbol.show {
+        margin-left: 130%;
+    }
+    /* first small clock end */
+    
+    /* first small stopwatch start */
+    .small-time-container {
+        margin: 19px 20px 15px 20px;
+        height: 235px;
+    }
+    /* first small stopwatch end */
+    
+    /* first small timer start */
+    /* first small timer end */
+    /* FIRST STYLE END */
+
+    /* SECOND STYLE START */
+    .second-page-container {
+        height: 420px;
+        width: 280px;
+    }
+    
+    /* second small clock start */
+    #second-small-main {
+        height: 320px;
+        margin: 19px 20px 20px 20px;
+    }
+    .second-style-con .small-clock-item {
+        font-size: 32px;
+    }
+    .second-style-con .small-clock-container .small-colon {
+        font-size: 22px;
+        margin: 0px 5px 0px 5px;
+    }
+    #sec-s-show-symbol {
+        height: 5px;
+    }
+    #sec-s-show-symbol.show {
+        margin-left: 130%;
+    }
+    /* second small clock end */
+    
+    /* second small stopwatch start */
+    /* second small stopwatch end */
+    
+    /* second small timer start */
+    /* second small timer end */
+    /* SECOND STYLE END */
+
+
+    /* THIRD STYLE START */
+    .third-page-container {
+        height: 420px;
+        width: 280px;
+    }
+    
+    /* third small clock start */
+    #third-small-main {
+        height: 320px;
+        margin: 22px 20px 20px 20px;
+    }
+    .third-style-con .small-clock-item {
+        font-size: 32px;
+    }
+    .third-style-con .small-clock-container .small-colon {
+        font-size: 22px;
+        margin: 0px 5px 0px 5px;
+    }
+    #thi-s-show-symbol {
+        height: 5px;
+    }
+    #thi-s-show-symbol.show {
+        margin-left: 130%;
+    }
+    /* third small clock end */
+    
+    /* third small stopwatch start */
+    #third-small-stopwatch .small-time-container {
+        margin: 22px 20px 15px 20px;
+        height: 230px;
+        gap: 5px;
+    }
+    #third-small-timer .small-time-container {
+        margin: 22px 20px 15px 20px;
+        height: 230px;
+        gap: 5px;
+    }
+    /* third small stopwatch end */
+    
+    /* third small timer start */
+    /* third small timer end */
+    /* THIRD STYLE END */
+
+
+    /* FOURTH STYLE START */
+    .fourth-page-container {
+        height: 420px;
+        width: 280px;
+    }
+    
+    /* fourth small clock start */
+    #fourth-small-main {
+        height: 320px;
+        margin: 19px 20px 20px 20px;
+    }
+    .fourth-style-con .small-clock-item {
+        font-size: 32px;
+    }
+    .fourth-style-con .small-clock-container .small-colon {
+        font-size: 22px;
+        margin: 0px 5px 0px 5px;
+    }
+    #fou-s-show-symbol {
+        height: 5px;
+    }
+    #fou-s-show-symbol.show {
+        margin-left: 130%;
+    }
+    /* fourth small clock end */
+    
+    /* fourth small stopwatch start */
+    /* fourth small stopwatch end */
+    
+    /* fourth small timer start */
+    /* fourth small timer end */
+    /* fourth STYLE END */
+}
+
+@media screen and (max-width:320px) {
+    .clock-item {
+        font-size: 35px;
+    }
+    .clock-container .colon {
+        margin: 0px 2px 0px 2px;
+    }
+    #ampm {
+        font-size: 8px;
+    }
+    .other-ampm {
+        font-size: 6px;
+    }
+    #date {
+        font-size: 6px;
+    }
+}
